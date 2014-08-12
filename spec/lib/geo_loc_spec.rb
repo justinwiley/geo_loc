@@ -60,10 +60,10 @@ describe GeoLoc do
       res.should be == contents
     end
 
-    it '#sync_data does both, downloads and decompresses' do
+    it '#sync_data! does both, downloads and decompresses' do
       gl.should_receive(:download_compressed_geodata)
       gl.should_receive(:decompress_geodata)
-      gl.sync_data
+      gl.sync_data!
     end
   end
 
@@ -72,7 +72,7 @@ describe GeoLoc do
     let(:ip) { '127.0.0.1' }
 
     it 'returns the geo data for a given ip address' do
-      gl.stub(:sync_data)
+      gl.stub(:sync_data!)
       double_geoip.should_receive(:city).with(ip)
       GeoIP.should_receive(:new).with(gdfile).and_return(double_geoip)
       gl.ip(ip)
@@ -80,14 +80,14 @@ describe GeoLoc do
   
     it 'should sync the data file if it doesnt exist' do
       File.should_receive(:exist?).and_return(false)
-      gl.should_receive(:sync_data)
+      gl.should_receive(:sync_data!)
       GeoIP.should_receive(:new).with(gdfile).and_return(double_geoip)
       gl.ip(ip)
     end
 
     it 'should not sync if it does' do
       File.should_receive(:exist?).and_return(true)
-      gl.should_not_receive(:sync_data)
+      gl.should_not_receive(:sync_data!)
       GeoIP.should_receive(:new).with(gdfile).and_return(double_geoip)
       gl.ip(ip)
     end

@@ -45,7 +45,7 @@ class GeoLoc
     end
   end
 
-  def sync_data
+  def sync_data!
     download_compressed_geodata
     decompress_geodata
   end
@@ -55,7 +55,7 @@ class GeoLoc
       if @data_exists || File.exist?(geodata_file)
         @data_exists = true
       else
-        sync_data
+        sync_data!
       end
 
       @geoip ||= GeoIP.new(geodata_file)
