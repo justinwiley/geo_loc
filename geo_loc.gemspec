@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = GeoLoc::VERSION
   spec.authors       = ["Justin Wiley"]
   spec.email         = ["justin.wiley@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A quick-and-dirty wrapper for the GeoIP gem that handles downloading and unzipping geodata}
+  spec.description   = %q{A quick-and-dirty wrapper for the GeoIP gem that handles downloading and unzipping geodata}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "GPL V3"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
