@@ -74,11 +74,15 @@ Without any initialization options, GeoLoc will try to pick default directory lo
 
 In general, the options will work if only one is passed, for example if you want to customize the data where geodata is stored.
 
-### Rspec warnings
+### Unit tests
+
+If youre testing code that depends on this gem, the 11mb file will be downloaded the first time the spec runs.  I recommend letting this happen (not being a mockist), it should only happen once, and it will help you to ensure that it actually works.
+
+Warnings like:
 
 	warning: instance variable @data_exists not initialized
 
-Is being triggered on running unit specs, if you know the cause and resolution to this issue, please let me know.
+...are being triggered on running the gem's specs, if you know the cause and resolution to this issue, please let me know.
 
 ## Contributing
 
