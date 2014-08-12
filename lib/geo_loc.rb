@@ -60,7 +60,7 @@ class GeoLoc
 
       @geoip ||= GeoIP.new(geodata_file)
       @geoip.city(ip_address).try(:to_hash)
-    rescue => e
+    rescue StandardError => e
       logger.error "Failed to geo ip address #{ip_address}\n#{e}\n#{e.backtrace.join("\n")}"
       nil
     end
