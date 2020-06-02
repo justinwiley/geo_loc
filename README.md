@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This gem has known security issues that I don't have time to fix or maintain, leaving it only for future reference.
+
 # GeoLoc
 
 A quick-and-dirty wrapper for the GeoIP gem that handles downloading and unzipping geodata.
